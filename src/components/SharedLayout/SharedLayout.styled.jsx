@@ -18,6 +18,8 @@ export const NavItem = styled(NavLink)`
     border-radius: 4px;
     color: #ffffff;
     font-weight: 600;
+    transition: border 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
     :hover,
     :focus {
         border: 1px solid #01b4e4;

@@ -1,18 +1,12 @@
-import { Container, FilmLink } from "./HomePage.styled";
+import FilmList from 'components/FilmList/FilmList';
 import PropTypes from 'prop-types';
+import { Container, Title } from './HomePage.styled';
 
 const HomePage = ({items}) => {
     return (
         <Container>
-            {items.map(({ id, title, poster_path: poster }) => (
-                <FilmLink key={id} to={`movies/${id}`}>
-                    <img
-                        src={`https://image.tmdb.org/t/p/w500${poster}`}
-                        alt={title}
-                    />
-                    <p>{title}</p>
-                </FilmLink>
-            ))}
+            <Title>Popular today movies</Title>
+            <FilmList items={items} />
         </Container>
     )
 }
