@@ -1,23 +1,21 @@
+import { useState, useEffect } from "react";
+import { getTrendingMovies } from "services/themoviedbAPI";
 import FilmList from 'components/FilmList/FilmList';
-import PropTypes from 'prop-types';
 import { Container, Title } from './HomePage.styled';
 
-const HomePage = ({items}) => {
+const HomePage = () => {
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() =>{ 
+        getTrendingMovies().then(response=>setMovies(response?.results ?? []));
+    }, [])
+  
     return (
         <Container>
             <Title>Popular today movies</Title>
-            <FilmList items={items} />
+            <FilmList items={movies} />
         </Container>
     )
 }
 
 export default HomePage;
-
-HomePage.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape(
-    {
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string,
-        poster: PropTypes.string,
-    })).isRequired
-}
