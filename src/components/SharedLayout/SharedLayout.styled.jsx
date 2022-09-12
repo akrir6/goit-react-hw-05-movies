@@ -17,8 +17,9 @@ export const NavItem = styled(NavLink)`
     border: 1px solid #0d253f;
     border-radius: 4px;
     color: #ffffff;
+    font-size: 18px;
     font-weight: 600;
-    transition: border 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     :hover,
     :focus {

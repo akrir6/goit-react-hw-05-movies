@@ -22,7 +22,7 @@ export async function getMoviesByQuery(searchQuery) {
     include_adult: true,
   });
   try {
-    const data = await axios.get(`search/movie?${params}`);
+    const { data } = await axios.get(`search/movie?${params}`);
     return data;
   } catch (error) {
     console.log(error);
