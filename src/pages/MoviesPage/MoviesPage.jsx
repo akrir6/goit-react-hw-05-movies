@@ -4,11 +4,13 @@ import { Container } from "./MoviesPage.styled";
 import { getMoviesByQuery } from "services/themoviedbAPI";
 import { Searchbar } from "components/Searchbar/Searchbar";
 import { useSearchParams } from "react-router-dom";
+import { BadRequest } from "components/BadRequest/BadRequest";
 
 const MoviesPage = () => {
     const [searchedMovies, setSearchedMovies] = useState([]);
     const [searchParams] = useSearchParams();
    
+    
     useEffect(() => {
         const query = searchParams.get('query');
         if (query) {
@@ -19,7 +21,12 @@ const MoviesPage = () => {
     return (
         <Container>
             <Searchbar />
-            <FilmList items={searchedMovies}/>
+            {searchedMovies.length>0
+                ? <FilmList items={searchedMovies} />
+                : searchParams.get('query') && <BadRequest>
+                    Sorry, there are no films matching your search query. Please try again.
+                </BadRequest>}
+                
         </Container>
     )
 }

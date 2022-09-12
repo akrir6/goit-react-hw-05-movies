@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getMovieByID,getMovieCredits,getMovieReviews,getTrendingMovies,getMoviesByQuery } from "./../services/themoviedbAPI";
+import { getTrendingMovies } from "./../services/themoviedbAPI";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 import HomePage from "../pages/HomePage/HomePage";
@@ -16,7 +16,7 @@ export const App = () => {
  // getMovieByID(532639);
   // getMovieCredits(532639);
   // getMovieReviews(532639);
-  // getMoviesByQuery('car');
+
   return (      
     <Routes>
       <Route path="/" element={<SharedLayout />}>
