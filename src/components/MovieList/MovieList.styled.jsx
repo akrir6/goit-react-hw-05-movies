@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
-export const FilmWrapper=styled.div`
+export const MovieWrapper=styled.ul`
     display: grid;  
     grid-template-rows: auto;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -10,7 +10,7 @@ export const FilmWrapper=styled.div`
     align-items: center;
 
 `
-export const FilmLink=styled(Link)`
+export const MovieLink=styled(Link)`
     display: block;
     border: 1px solid #e3e3e3;
     color: #0d253f;

@@ -16,7 +16,7 @@ export const SearchForm = styled.form`
     width: 100%;
     max-width: 400px;
     color: #0d253f;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 4px;
     overflow: hidden;
 `

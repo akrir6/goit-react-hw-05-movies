@@ -34,7 +34,7 @@ export async function getMovieByID(movieId) {
     api_key: APIKEY,
   });
   try {
-    const data = await axios.get(`movie/${movieId}?${params}`);
+    const { data } = await axios.get(`movie/${movieId}?${params}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -46,7 +46,7 @@ export async function getMovieCredits(movieId) {
     api_key: APIKEY,
   });
   try {
-    const data = await axios.get(`movie/${movieId}/credits?${params}`);
+    const { data } = await axios.get(`movie/${movieId}/credits?${params}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -58,7 +58,7 @@ export async function getMovieReviews(movieId) {
     api_key: APIKEY,
   });
   try {
-    const data = await axios.get(`movie/${movieId}/reviews?${params}`);
+    const { data } = await axios.get(`movie/${movieId}/reviews?${params}`);
     return data;
   } catch (error) {
     console.log(error);

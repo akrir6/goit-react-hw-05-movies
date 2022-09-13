@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getTrendingMovies } from "services/themoviedbAPI";
-import FilmList from 'components/FilmList/FilmList';
+import MovieList from 'components/MovieList/MovieList';
 import { Container, Title } from './HomePage.styled';
 
 const HomePage = () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
     return (
         <Container>
             <Title>Popular today movies</Title>
-            <FilmList items={movies} />
+            <MovieList items={movies} />
         </Container>
     )
 }

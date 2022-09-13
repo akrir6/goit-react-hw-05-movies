@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import FilmList from "components/FilmList/FilmList";
+import MovieList from "components/MovieList/MovieList";
 import { Container } from "./MoviesPage.styled";
 import { getMoviesByQuery } from "services/themoviedbAPI";
 import { Searchbar } from "components/Searchbar/Searchbar";
@@ -22,7 +22,7 @@ const MoviesPage = () => {
         <Container>
             <Searchbar />
             {searchedMovies.length>0
-                ? <FilmList items={searchedMovies} />
+                ? <MovieList items={searchedMovies} />
                 : searchParams.get('query') && <BadRequest>
                     Sorry, there are no films matching your search query. Please try again.
                 </BadRequest>}
