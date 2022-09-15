@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `
 
 export const Poster=styled.img`
-    width: 300px;
+    width: 250px;
     border-radius: 8px;
 `
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const MovieWrapper=styled.ul`
     display: grid;  
     grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     column-gap: 32px;
     row-gap: 16px;
     align-items: center;
