@@ -9,23 +9,24 @@ import { BadRequest } from "components/BadRequest/BadRequest";
 const MoviesPage = () => {
     const [searchedMovies, setSearchedMovies] = useState([]);
     const [searchParams] = useSearchParams();
-   
-    
+    const [empty, setEmpty] = useState(false);
     useEffect(() => {
         const query = searchParams.get('query');
         if (query) {
-            getMoviesByQuery(query).then(response => setSearchedMovies(response?.results ?? []));
+            getMoviesByQuery(query).then(response => {
+                setSearchedMovies(response?.results ?? []);
+                setEmpty(response?.results?.length)
+            });
         }
     },[searchParams])
-    
+  
     return (
         <Container>
             <Searchbar />
-            {searchedMovies.length>0
-                ? <MovieList items={searchedMovies} />
-                : searchParams.get('query') && <BadRequest>
-                    Sorry, there are no films matching your search query. Please try again.
-                </BadRequest>}
+            {searchedMovies.length > 0 && <MovieList items={searchedMovies} />}
+            {empty && <BadRequest>
+                Sorry, there are no films matching your search query. Please try again.
+            </BadRequest>}
                 
         </Container>
     )

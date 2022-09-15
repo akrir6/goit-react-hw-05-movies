@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export const Container=styled.div`
     margin: 0 32px;
@@ -31,5 +31,21 @@ export const NavItem = styled(NavLink)`
         background-color: #01b4e4;
         border-radius: 4px 4px 0 0;
         border-bottom: 2px solid #01b4e4;
+    }
+`
+export const BackLink = styled(Link)`
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: #0d253f;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    :hover,
+    :focus {
+       background-color: #01b4e4;
     }
 `

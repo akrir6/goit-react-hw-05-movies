@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { Container, MovieNavInfo, NavItem } from "./MovieDetailsPage.styled";
+import { Container, MovieNavInfo, NavItem, BackLink } from "./MovieDetailsPage.styled";
 import { lazy, Suspense, useState } from "react";
-import BackLink from "components/BackLink/BackLink";
 import { useEffect } from "react";
 
 const MovieInfo = lazy(() => import("components/MovieInfo/MovieInfo"));
@@ -16,7 +15,7 @@ const MovieDetailPage = () => {
     
     return (
         <Container>
-            <BackLink to={backLink}/>
+            <BackLink to={backLink}>Go Back</BackLink>
             <MovieInfo/>
             <MovieNavInfo>
                 <li>
