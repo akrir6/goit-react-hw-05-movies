@@ -19,7 +19,7 @@ export async function getMoviesByQuery(searchQuery) {
     api_key: APIKEY,
     query: searchQuery,
     page: 1,
-    include_adult: true,
+    include_adult: false,
   });
   try {
     const { data } = await axios.get(`search/movie?${params}`);
