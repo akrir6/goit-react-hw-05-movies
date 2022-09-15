@@ -15,7 +15,7 @@ const MoviesPage = () => {
         if (query) {
             getMoviesByQuery(query).then(response => {
                 setSearchedMovies(response?.results ?? []);
-                setEmpty(response?.results?.length)
+                setEmpty(!response?.results?.length)
             });
         }
     },[searchParams])
