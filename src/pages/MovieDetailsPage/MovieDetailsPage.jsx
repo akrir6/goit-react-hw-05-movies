@@ -1,22 +1,34 @@
-import { Outlet } from "react-router-dom";
-import MovieInfo from "components/MovieInfo/MovieInfo";
+import { Outlet, useLocation } from "react-router-dom";
 import { Container, MovieNavInfo, NavItem } from "./MovieDetailsPage.styled";
+import { lazy, Suspense, useState } from "react";
+import BackLink from "components/BackLink/BackLink";
+import { useEffect } from "react";
+
+const MovieInfo = lazy(() => import("components/MovieInfo/MovieInfo"));
 
 const MovieDetailPage = () => {
+    const location = useLocation();
+    const [backLink, setBackLink] = useState('/');
+
+    useEffect(() => {
+        setBackLink(location.state?.from ?? '/');  
+    },[location.state?.from])
+    
     return (
         <Container>
-            <button type="button">GO BACK</button>
+            <BackLink to={backLink}/>
             <MovieInfo/>
             <MovieNavInfo>
                 <li>
-                    <NavItem to="cast">Cast</NavItem>
+                    <NavItem to="cast" state={{from: backLink}}>Cast</NavItem>
                 </li>
                 <li>
-                    <NavItem to="reviews">Rewiews</NavItem>
+                    <NavItem to="reviews" state={{from: backLink}}>Rewiews</NavItem>
                 </li>    
-               </MovieNavInfo>
-            
-            <Outlet />
+            </MovieNavInfo>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+            </Suspense>
         </Container>
     )
 }

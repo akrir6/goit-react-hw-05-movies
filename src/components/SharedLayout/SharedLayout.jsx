@@ -1,5 +1,7 @@
-import { Outlet } from "react-router-dom"
-import { Header, NavItem } from "./SharedLayout.styled"
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+
+import { Header, NavItem } from "./SharedLayout.styled";
 export const SharedLayout = () => {
     return (
         <>
@@ -9,7 +11,9 @@ export const SharedLayout = () => {
                     <NavItem to="/movies">Movies</NavItem>
                 </nav>
             </Header>
-            <Outlet />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+            </Suspense>
         </>
     )
 }

@@ -32,7 +32,4 @@ export const NavItem = styled(NavLink)`
         border-radius: 4px 4px 0 0;
         border-bottom: 2px solid #01b4e4;
     }
-
-
-
 `
