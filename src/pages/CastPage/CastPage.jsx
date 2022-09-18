@@ -1,3 +1,4 @@
+import { BadRequest } from "components/BadRequest/BadRequest";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCredits } from "services/themoviedbAPI";
@@ -12,8 +13,8 @@ const CastPage = () => {
 
     return (
         <>
-            {movieCast && 
-            <CastWrapper>
+            {movieCast 
+            ? <CastWrapper>
                 {movieCast.map(({ id, name, profile_path }) => (
                     <CastItem key={id}>
                         <img
@@ -23,7 +24,8 @@ const CastPage = () => {
                         <p>{name}</p>
                     </CastItem>
                 ))}        
-            </CastWrapper>}
+                </CastWrapper>
+            :<BadRequest>There is no information about the cast</BadRequest>}
         </>
     )
 }

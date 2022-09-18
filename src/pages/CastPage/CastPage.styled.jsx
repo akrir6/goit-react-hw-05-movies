@@ -15,8 +15,10 @@ export const CastWrapper = styled.ul`
 
 `
 export const CastItem=styled.li`
-    display: block;
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     border: 1px solid #e3e3e3;
     color: #0d253f;
     border-radius: 2px;

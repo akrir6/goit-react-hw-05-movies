@@ -1,3 +1,4 @@
+import { Loader } from "components/Loader/Loader";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
@@ -11,7 +12,7 @@ export const SharedLayout = () => {
                     <NavItem to="/movies">Movies</NavItem>
                 </nav>
             </Header>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader/>}>
                 <Outlet />
             </Suspense>
         </>
