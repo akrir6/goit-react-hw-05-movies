@@ -4,8 +4,8 @@ export const BadRequestWrapper=styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    font-size: 24px ;
+    text-align:center;
+    font-size: 18px ;
     font-weight: 700;
     color: #0d253f;
 `

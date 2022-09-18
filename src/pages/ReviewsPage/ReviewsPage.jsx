@@ -8,25 +8,27 @@ import { ReviewsItem, ReviewsWrapper } from "./ReviewsPage.styled";
 const ReviewsPage = () => {
     const [movieReviews, setMovieReviews] = useState([]);
     const { movieId } = useParams();
+    const [empty, setEmpty] = useState(false);
     useEffect(() => {
-        getMovieReviews(movieId).then(response=>setMovieReviews(response?.results ?? []));
+        getMovieReviews(movieId).then(response => {
+            setMovieReviews(response?.results ?? []);
+            setEmpty(!response?.results?.length)
+        });
     }, [movieId]);
        
     return (
         <ReviewsWrapper>
-            {movieReviews.length > 0
-                
-                ? movieReviews.map(({ id, content, author }) => (
+            {movieReviews.length > 0 &&
+                movieReviews.map(({id, content, author}) => (
                     <ReviewsItem key={id}>
                         <h3>{author}</h3>
                         <p>{content}</p>
                     </ReviewsItem>
                 ))
-                
-                : <BadRequest>
-                    There are no reviews for this movie
-                </BadRequest>
-            }
+            }   
+            {empty && <BadRequest>
+                There are no reviews for this movie
+            </BadRequest>}
         </ReviewsWrapper>
     )
 }

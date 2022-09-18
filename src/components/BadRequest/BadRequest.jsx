@@ -6,7 +6,7 @@ export const BadRequest = ({children}) => {
     return (
         <BadRequestWrapper>
             <p>{children}</p>
-            <MdOutlineBrokenImage size={120} />
+            <MdOutlineBrokenImage size={80} />
         </BadRequestWrapper>
     )
 }

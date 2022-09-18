@@ -5,17 +5,20 @@ import { getMovieCredits } from "services/themoviedbAPI";
 import { CastItem, CastWrapper } from "./CastPage.styled";
 
 const CastPage = () => {
-    const [movieCast, setMovieCast] = useState(null);
+    const [movieCast, setMovieCast] = useState([]);
     const { movieId } = useParams();
+    const [empty, setEmpty] = useState(false);
     useEffect(() => {
-        getMovieCredits(movieId).then(response=>setMovieCast(response?.cast));
+        getMovieCredits(movieId).then(response => {
+            setMovieCast(response?.cast ?? []);
+            setEmpty(!response?.cast.length);
+        })
     }, [movieId]);
 
     return (
-        <>
-            {movieCast 
-            ? <CastWrapper>
-                {movieCast.map(({ id, name, profile_path }) => (
+        <CastWrapper>
+            {movieCast &&
+                movieCast.map(({ id, name, profile_path }) => (
                     <CastItem key={id}>
                         <img
                             src={`https://image.tmdb.org/t/p/w300${profile_path}`}
@@ -24,9 +27,8 @@ const CastPage = () => {
                         <p>{name}</p>
                     </CastItem>
                 ))}        
-                </CastWrapper>
-            :<BadRequest>There is no information about the cast</BadRequest>}
-        </>
+             {empty && <BadRequest>There is no information about the cast</BadRequest>}
+        </CastWrapper>
     )
 }
 
