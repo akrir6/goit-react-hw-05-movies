@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 
 export const Poster=styled.img`
     width: 100%;
-    max-width: 768px;
+    max-width: 767px;
     @media screen and (min-width: 768px) {
         max-width: 250px;
     }
@@ -28,12 +28,14 @@ export const Poster=styled.img`
 
 export const Details=styled.ul`
     color: #0d253f;
-    padding: 0 16px;
-    
+    padding: 16px;
+
     li:not(:last-child) {
+        margin-bottom: 16px;
         border-bottom: 1px dotted  #0d253f;
     }
     h2, h3 {
+        margin: 0;
         text-transform: uppercase;
     }
 `
